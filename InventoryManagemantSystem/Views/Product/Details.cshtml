@@ -1,0 +1,31 @@
+﻿@model InventoryManagemantSystem.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Product Name")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Product Quantity")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProductQnty)
+        </dd>
+    </dl>
+</div>
+<br />
+<div>
+    @Html.ActionLink("Edit","Edit",new {},new {@class ="btn btn-outline-primary"}) |
+    @Html.ActionLink("Cancel","Index",new {},new {@class ="btn btn-outline-dark"})
+</div>

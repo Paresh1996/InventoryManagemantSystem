@@ -1,0 +1,53 @@
+﻿@model IEnumerable<InventoryManagemantSystem.Models.Purchase>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Purchase</h1>
+
+<p>
+    @Html.ActionLink("Create New","PurchaseProduct",new {},new {@class ="btn btn-primary"})
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Porduct Id")
+            </th>
+            <th>
+                @Html.DisplayName("Purchase Product")
+            </th>
+            <th>
+                @Html.DisplayName("Product Quantity")
+            </th>
+            <th>
+                @Html.DisplayName("Purchase Date")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                 @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PurchaseProd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PurchaseQnty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PurchaseDate)
+            </td>
+            <td>
+                    @Html.ActionLink("Edit","Edit",new {id=item.Id},new {@class ="btn btn-outline-primary"}) |
+                    @Html.ActionLink("Details","Details",new {id=item.Id},new {@class ="btn btn-outline-success"}) |
+                    @Html.ActionLink("Delete","Delete",new {id=item.Id},new {@class ="btn btn-outline-danger"})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

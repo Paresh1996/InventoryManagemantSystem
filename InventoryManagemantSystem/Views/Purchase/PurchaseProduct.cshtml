@@ -1,0 +1,41 @@
+﻿@model InventoryManagemantSystem.Models.Purchase
+
+@{
+    ViewData["Title"] = "PurchaseProduct";
+}
+
+<h1>Purchase Product</h1>
+
+<h4>Purchase</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="PurchaseProduct">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PurchaseProd" class="control-label">Product Name</label>
+                @Html.DropDownListFor(Model=>Model.PurchaseProd,ViewBag.ProductName as SelectList,"Select Product") 
+                <span asp-validation-for="PurchaseProd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PurchaseQnty" class="control-label">Quantity</label>
+                <input asp-for="PurchaseQnty" class="form-control" />
+                <span asp-validation-for="PurchaseQnty" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PurchaseDate" class="control-label">Date</label>
+                <input asp-for="PurchaseDate" class="form-control" />
+                <span asp-validation-for="PurchaseDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-outline-primary" /> |
+                @Html.ActionLink("Cancel","Index",new {},new {@class ="btn btn-outline-dark"})
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
